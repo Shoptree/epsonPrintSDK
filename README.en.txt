@@ -1,7 +1,7 @@
 ==========================================================================
-          ePOS-Print SDK for iOS  Version 1.3.4
+          ePOS-Print SDK for iOS  Version 1.4.2
 
-                                  Copyright(C) 2013 Seiko Epson Corp.
+          Copyright Seiko Epson Corporation 2012-2014 All rights reserved.
 ==========================================================================
 
 1. About this software
@@ -17,13 +17,13 @@ iOS Versions
   iOS 4.2 to 4.3.5
   iOS 5.0 to 5.1.1
   iOS 6.0 to 6.1.4
-  iOS 7.0 to 7.0.3
+  iOS 7.0 to 7.0.4
 
 iOS Devices
   iPhone ( 3G / 3GS / 4 / 4S / 5 / 5c / 5s )
   iPod touch ( 2nd generation / 3rd generation / 4th generation / 5th generation )
-  iPad / iPad2 / iPad ( 3rd generation / 4th generation )
-  iPad mini
+  iPad / iPad2 / iPad ( 3rd generation / 4th generation ) / iPad Air
+  iPad mini / iPad mini with Retina display
 
 Supported Printers
   EPSON TM-T88V
@@ -43,6 +43,7 @@ Supported Printers
 Supported Interfaces
   Wired LAN
   Wireless LAN
+  Bluetooth
 
 
 2. Supplied Files
@@ -58,9 +59,9 @@ Supported Interfaces
   Contains the SOFTWARE LICENSE AGREEMENT.
 - EULA.jp.txt
   Contains the SOFTWARE LICENSE AGREEMENT. (The Japanese-language edition)
-- ePOS-Print_SDK_iOS_E_RevI.pdf
+- ePOS-Print_SDK_iOS_E_RevL.pdf
   A user's manual.
-- ePOS-Print_SDK_iOS_J_RevI.pdf
+- ePOS-Print_SDK_iOS_J_RevL.pdf
   A user's manual. (The Japanese-language edition)
 - README.en.txt
   This file.
@@ -72,6 +73,30 @@ Supported Interfaces
 - For detailed information, please see ePOS-Print SDK for iOS User's Manual.
 
 4. Modification from the old version
+
+  Version 1.4.2
+    - Bug Fixed.
+      - Status when calling sendData method was incorreect.
+
+  Version 1.4.1
+    - Bug Fixed.
+      - The openPrinter and sendData method causes one second delay,
+        when printer doesn't have a battery.
+
+  Version 1.4.0
+    - Added the support interface.
+      - Bluetooth
+
+  Version 1.3.5
+    - Added the support iOS version.
+      - iOS 7.0.4
+    - Added the support iOS Devices.
+      - iPad mini with Retina display
+    - Improved the printer search function for iOS 7.
+
+  Version 1.3.4a
+    - Added the support iOS Devices.
+      - iPad Air
 
   Version 1.3.4
     - Added the support iOS version.

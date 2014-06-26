@@ -1,7 +1,7 @@
 ==========================================================================
-          ePOS-Print SDK for iOS  Version 1.3.4
+          ePOS-Print SDK for iOS  Version 1.4.2
 
-                                  Copyright(C) 2013 Seiko Epson Corp.
+          Copyright Seiko Epson Corporation 2012-2014 All rights reserved.
 ==========================================================================
 
 1.本ソフトウェアについて
@@ -17,13 +17,13 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
   iOS 4.2 - 4.3.5
   iOS 5.0 - 5.1.1
   iOS 6.0 - 6.1.4
-  iOS 7.0 - 7.0.3
+  iOS 7.0 - 7.0.4
 
 対応iOS端末
   iPhone ( 3G / 3GS / 4 / 4S / 5 / 5c / 5s )
   iPod touch ( 第2世代 / 第3世代 / 第4世代 / 第5世代 )
-  iPad / iPad2 / iPad ( 第3世代 / 第4世代 )
-  iPad mini
+  iPad / iPad2 / iPad ( 第3世代 / 第4世代 ) / iPad Air
+  iPad mini / iPad mini with Retina display
 
 サポートプリンター
   EPSON TM-T88V
@@ -37,12 +37,13 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
   EPSON TM-P60（海外モデルのみ）
   EPSON TM-P60II
   EPSON TM-T90II
-  EPSON TM-T20II（海外モデルのみ）
+  EPSON TM-T20II
   EPSON TM-P80（海外モデルのみ）
 
 サポートインターフェイス
   有線LAN
   無線LAN
+  Bluetooth
 
 
 2.提供ファイル
@@ -57,9 +58,9 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
   SOFTWARE LICENSE AGREEMENT が記載されています。
 ・EULA.en.txt
   SOFTWARE LICENSE AGREEMENT（英語版）が記載されています。
-・ePOS-Print_SDK_iOS_J_RevI.pdf
+・ePOS-Print_SDK_iOS_J_RevL.pdf
   ユーザーズマニュアルです。
-・ePOS-Print_SDK_iOS_E_RevI.pdf
+・ePOS-Print_SDK_iOS_E_RevL.pdf
   ユーザーズマニュアル（英語版）です。
 ・README.jp.txt
   本書です。
@@ -74,6 +75,32 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
 
 
 4.旧バージョンからの変更点
+
+  Version 1.4.2
+    ・不具合修正。
+      ・sendDataメソッド実行時のステータスが正しくないことがある
+
+  Version 1.4.1
+    ・不具合修正。
+      ・バッテリー非搭載のプリンターでopenPrinterメソッド、sendDataメソッドを
+        実行すると、約1秒の遅延が発生する。
+
+  Version 1.4.0
+    ・サポートインターフェイスを追加。
+      ・Bluetooth
+
+  Version 1.3.5
+    ・対応iOSバージョンを追加。
+      ・iOS 7.0.4
+    ・対応iOS端末を追加。
+      ・iPad mini with Retina display
+    ・機能改善。
+      ・iOS7のiOS端末とTMプリンターをAdhocモードでTCP接続した際の
+        プリンター検索機能の改善。
+
+  Version 1.3.4a
+    ・対応iOS端末を追加。
+      ・iPad Air
 
   Version 1.3.4
     ・対応iOSバージョンを追加。

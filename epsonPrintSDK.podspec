@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'epsonPrintSDK'
-  s.version      = '1.3.4'
+  s.version      = '1.4.2'
   s.summary      = 'Epson ePOS-Print SDK for iOS'
   s.description  = <<-DESC
                     The ePOS-Print SDK for iOS is an SDK aimed at development engineers who 

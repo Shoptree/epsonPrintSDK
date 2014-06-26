@@ -1,7 +1,7 @@
 //
-//  Copyright (C) SEIKO EPSON CORPORATION 2012-2013. All rights reserved.
+//  Copyright Seiko Epson Corporation 2012-2014 All rights reserved.
 //
-//  Ver.1.3.4
+//  Ver.1.4.2
 
 #ifdef __OBJC__
 #import <Foundation/Foundation.h>
@@ -31,7 +31,7 @@
 #define EPOS_OC_ST_BUZZER (0x01000000)
 
 #define EPOS_OC_SDK_NAME        "ePOS-Print SDK for iOS"
-#define EPOS_OC_SDK_VERSION     "1.3.4"
+#define EPOS_OC_SDK_VERSION     "1.4.2"
 
 enum EposOcErrorStatus {
 	EPOS_OC_SUCCESS = 0,		/* Success */
@@ -233,6 +233,7 @@ enum EposOcLayout {
 
 enum EposOcDevtype {
 	EPOS_OC_DEVTYPE_TCP = 0,
+	EPOS_OC_DEVTYPE_BLUETOOTH,
 };
 
 enum EposOcLogPeriod {
@@ -245,7 +246,7 @@ enum EposOcLogEnabled {
     EPOS_OC_LOG_STORAGE,
     EPOS_OC_LOG_TCP,
 };
-    
+
 enum EposOcLogLevel {
     EPOS_OC_LOG_LOW = 0,
 };
@@ -378,6 +379,7 @@ enum EPSONIoOcErrType {
 
 enum EPSONIoOcDevType {
     EPSONIO_OC_DEVTYPE_TCP       = (0x00101),
+    EPSONIO_OC_DEVTYPE_BLUETOOTH = (0x00102),
 };
 
 @interface EpsonIo : NSObject {
