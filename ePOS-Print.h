@@ -1,7 +1,7 @@
 //
 //  Copyright Seiko Epson Corporation 2012-2014 All rights reserved.
 //
-//  Ver.1.4.2
+//  Ver.1.5.0
 
 #ifdef __OBJC__
 #import <Foundation/Foundation.h>
@@ -31,7 +31,7 @@
 #define EPOS_OC_ST_BUZZER (0x01000000)
 
 #define EPOS_OC_SDK_NAME        "ePOS-Print SDK for iOS"
-#define EPOS_OC_SDK_VERSION     "1.4.2"
+#define EPOS_OC_SDK_VERSION     "1.5.0"
 
 enum EposOcErrorStatus {
 	EPOS_OC_SUCCESS = 0,		/* Success */
@@ -96,6 +96,11 @@ enum EposOcHalftone {
 	EPOS_OC_HALFTONE_DITHER = 0,
 	EPOS_OC_HALFTONE_ERROR_DIFFUSION,
 	EPOS_OC_HALFTONE_THRESHOLD
+};
+
+enum EposOcCompress {
+    EPOS_OC_COMPRESS_NONE = 0,
+    EPOS_OC_COMPRESS_DEFLATE
 };
 
 enum EposOcBarcode {
@@ -276,6 +281,7 @@ enum EposOcLogLevel {
 - (int) addFeedLine:(long)line;
 - (int) addImage:(UIImage *)data X:(long)x Y:(long)y Width:(long)width Height:(long)height Color:(int)color;
 - (int) addImage:(UIImage *)data X:(long)x Y:(long)y Width:(long)width Height:(long)height Color:(int)color Mode:(int)mode Halftone:(int)halftone Brightness:(double)brightness;
+- (int) addImage:(UIImage *)data X:(long)x Y:(long)y Width:(long)width Height:(long)height Color:(int)color Mode:(int)mode Halftone:(int)halftone Brightness:(double)brightness Compress:(int)compress;
 - (int) addLogo:(long)key1 Key2:(long)key2;
 - (int) addBarcode:(NSString *)data Type:(int)type Hri:(int)hri Font:(int)font Width:(long)width Height:(long)height;
 - (int) addSymbol:(NSString *)data Type:(int)type Level:(int)level Width:(long)width Height:(long)height Size:(long)size;

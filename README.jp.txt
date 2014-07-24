@@ -1,5 +1,5 @@
 ==========================================================================
-          ePOS-Print SDK for iOS  Version 1.4.2
+          ePOS-Print SDK for iOS  Version 1.5.0
 
           Copyright Seiko Epson Corporation 2012-2014 All rights reserved.
 ==========================================================================
@@ -17,7 +17,7 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
   iOS 4.2 - 4.3.5
   iOS 5.0 - 5.1.1
   iOS 6.0 - 6.1.4
-  iOS 7.0 - 7.0.4
+  iOS 7.0 - 7.1.1
 
 対応iOS端末
   iPhone ( 3G / 3GS / 4 / 4S / 5 / 5c / 5s )
@@ -39,6 +39,7 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
   EPSON TM-T90II
   EPSON TM-T20II
   EPSON TM-P80（海外モデルのみ）
+  EPSON TM-U330 シリーズ（海外モデルのみ）
 
 サポートインターフェイス
   有線LAN
@@ -58,9 +59,9 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
   SOFTWARE LICENSE AGREEMENT が記載されています。
 ・EULA.en.txt
   SOFTWARE LICENSE AGREEMENT（英語版）が記載されています。
-・ePOS-Print_SDK_iOS_J_RevL.pdf
+・ePOS-Print_SDK_iOS_J_RevM.pdf
   ユーザーズマニュアルです。
-・ePOS-Print_SDK_iOS_E_RevL.pdf
+・ePOS-Print_SDK_iOS_E_RevM.pdf
   ユーザーズマニュアル（英語版）です。
 ・README.jp.txt
   本書です。
@@ -76,6 +77,13 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
 
 4.旧バージョンからの変更点
 
+  Version 1.5.0
+    ・対応iOSバージョンを追加。
+      ・iOS 7.1 - 7.1.1
+    ・サポートプリンターを追加。
+      ・TM-U330
+    ・圧縮イメージ処理用のコマンド生成APIを追加。
+
   Version 1.4.2
     ・不具合修正。
       ・sendDataメソッド実行時のステータスが正しくないことがある
@@ -84,6 +92,10 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
     ・不具合修正。
       ・バッテリー非搭載のプリンターでopenPrinterメソッド、sendDataメソッドを
         実行すると、約1秒の遅延が発生する。
+    ・StatusMonitorの機能改善。
+      ・ステータス取得動作時のライブラリ内部通信効率を改善。
+    ・不具合修正。
+      ・TM-P80のサポートAPIにaddCut, addFeedPosition, addLayout APIを追加。
 
   Version 1.4.0
     ・サポートインターフェイスを追加。

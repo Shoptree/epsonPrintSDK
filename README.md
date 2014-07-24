@@ -1,5 +1,5 @@
 ==========================================================================
-          ePOS-Print SDK for iOS  Version 1.4.2
+          ePOS-Print SDK for iOS  Version 1.5.0
 
           Copyright Seiko Epson Corporation 2012-2014 All rights reserved.
 ==========================================================================
@@ -17,7 +17,7 @@ iOS Versions
   iOS 4.2 to 4.3.5
   iOS 5.0 to 5.1.1
   iOS 6.0 to 6.1.4
-  iOS 7.0 to 7.0.4
+  iOS 7.0 to 7.1.1
 
 iOS Devices
   iPhone ( 3G / 3GS / 4 / 4S / 5 / 5c / 5s )
@@ -39,6 +39,7 @@ Supported Printers
   EPSON TM-T90II
   EPSON TM-T20II
   EPSON TM-P80
+  EPSON TM-U330 series
 
 Supported Interfaces
   Wired LAN
@@ -59,9 +60,9 @@ Supported Interfaces
   Contains the SOFTWARE LICENSE AGREEMENT.
 - EULA.jp.txt
   Contains the SOFTWARE LICENSE AGREEMENT. (The Japanese-language edition)
-- ePOS-Print_SDK_iOS_E_RevL.pdf
+- ePOS-Print_SDK_iOS_E_RevM.pdf
   A user's manual.
-- ePOS-Print_SDK_iOS_J_RevL.pdf
+- ePOS-Print_SDK_iOS_J_RevM.pdf
   A user's manual. (The Japanese-language edition)
 - README.en.txt
   This file.
@@ -74,6 +75,13 @@ Supported Interfaces
 
 4. Modification from the old version
 
+  Version 1.5.0
+    - Added the support iOS version.
+      - iOS 7.1 to 7.1.1
+    - Added the support printers.
+      - TM-U330
+    - Added an API for compression image data processing.
+
   Version 1.4.2
     - Bug Fixed.
       - Status when calling sendData method was incorreect.
@@ -82,6 +90,10 @@ Supported Interfaces
     - Bug Fixed.
       - The openPrinter and sendData method causes one second delay,
         when printer doesn't have a battery.
+    - Improved the status monitoring function.
+      - Improved the communication efficiency of status acquisition.
+    - Bug Fixed.
+      - Added the support API of TM-P80 the addCut, addFeedPosition, addLayout API.
 
   Version 1.4.0
     - Added the support interface.
