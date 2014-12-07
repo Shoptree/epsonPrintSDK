@@ -1,5 +1,5 @@
 ==========================================================================
-          ePOS-Print SDK for iOS  Version 1.5.0
+          ePOS-Print SDK for iOS  Version 1.6.0a
 
           Copyright Seiko Epson Corporation 2012-2014 All rights reserved.
 ==========================================================================
@@ -17,10 +17,11 @@ iOS Versions
   iOS 4.2 to 4.3.5
   iOS 5.0 to 5.1.1
   iOS 6.0 to 6.1.4
-  iOS 7.0 to 7.1.1
+  iOS 7.0 to 7.1.2
+  iOS 8.0 to 8.0.2
 
 iOS Devices
-  iPhone ( 3G / 3GS / 4 / 4S / 5 / 5c / 5s )
+  iPhone ( 3G / 3GS / 4 / 4S / 5 / 5c / 5s / 6 / 6 Plus )
   iPod touch ( 2nd generation / 3rd generation / 4th generation / 5th generation )
   iPad / iPad2 / iPad ( 3rd generation / 4th generation ) / iPad Air
   iPad mini / iPad mini with Retina display
@@ -40,6 +41,7 @@ Supported Printers
   EPSON TM-T20II
   EPSON TM-P80
   EPSON TM-U330 series
+  EPSON TM-P20
 
 Supported Interfaces
   Wired LAN
@@ -52,18 +54,26 @@ Supported Interfaces
 - ePOS-Print.h
   Header file that includes class definitions and error value / device type 
   constant definitions.
+- ePOSEasySelect.h
+  Header file for selecting a printer easily.
 - libeposprint.a
-  Library for function execution. (armv6, armv7, armv7s, arm64, i386 supported)
+  Library for function execution. (armv6, armv7, armv7s, arm64, i386, x86_64 supported)
+- libeposeasyselect.a
+  Library for selecting a printer easily.(armv7, armv7s, arm64, i386, x86_64 supported)
 - ePOS-Print_Sample_iOS.zip
   A sample program file.
 - EULA.en.txt
   Contains the SOFTWARE LICENSE AGREEMENT.
 - EULA.jp.txt
   Contains the SOFTWARE LICENSE AGREEMENT. (The Japanese-language edition)
-- ePOS-Print_SDK_iOS_E_RevM.pdf
+- ePOS-Print_SDK_iOS_en_revN.pdf
   A user's manual.
-- ePOS-Print_SDK_iOS_J_RevM.pdf
+- ePOS-Print_SDK_iOS_ja_revN.pdf
   A user's manual. (The Japanese-language edition)
+- ePOS-Print_SDK_iOS_AppDevGuide_E_RevA.pdf
+  A developer's guide
+- ePOS-Print_SDK_iOS_AppDevGuide_J_RevA.pdf
+  A developer's guide (The Japanese-language edition)
 - README.en.txt
   This file.
 - README.jp.txt
@@ -74,6 +84,31 @@ Supported Interfaces
 - For detailed information, please see ePOS-Print SDK for iOS User's Manual.
 
 4. Modification from the old version
+
+  Version 1.6.0a
+    - Added the support iOS version.
+      - iOS 8.0 to 8.0.2
+    - Added the support iOS Devices.
+      - iPhone 6
+      - iPhone 6 Plus
+    - Supported the SamplePrograms on iOS8.
+
+  Version 1.6.0
+    - Added the support printers.
+      - TM-P20
+    - Added an printer search API for getting the device name.
+    - Added the support iOS version.
+      - iOS 7.1.2
+    - Added the openPrinter API for timeout settings.
+    - Improved the openPrinter API.
+      - Not only IP address also MAC address or the host name can be set to the deviceName.
+        (Only TCP/IP connection)
+    - Improved the log function.
+      - Compression of the backup file.
+      - Improved the output content.
+    - Specification change.
+      - openPrinter returns an error after specified time passed if the target
+        printer is already opened. (Only TCP/IP connection)
 
   Version 1.5.0
     - Added the support iOS version.

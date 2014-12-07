@@ -1,5 +1,5 @@
 ==========================================================================
-          ePOS-Print SDK for iOS  Version 1.5.0
+          ePOS-Print SDK for iOS  Version 1.6.0a
 
           Copyright Seiko Epson Corporation 2012-2014 All rights reserved.
 ==========================================================================
@@ -17,10 +17,11 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
   iOS 4.2 - 4.3.5
   iOS 5.0 - 5.1.1
   iOS 6.0 - 6.1.4
-  iOS 7.0 - 7.1.1
+  iOS 7.0 - 7.1.2
+  iOS 8.0 - 8.0.2
 
 対応iOS端末
-  iPhone ( 3G / 3GS / 4 / 4S / 5 / 5c / 5s )
+  iPhone ( 3G / 3GS / 4 / 4S / 5 / 5c / 5s / 6 / 6 Plus )
   iPod touch ( 第2世代 / 第3世代 / 第4世代 / 第5世代 )
   iPad / iPad2 / iPad ( 第3世代 / 第4世代 ) / iPad Air
   iPad mini / iPad mini with Retina display
@@ -40,6 +41,7 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
   EPSON TM-T20II
   EPSON TM-P80（海外モデルのみ）
   EPSON TM-U330 シリーズ（海外モデルのみ）
+  EPSON TM-P20
 
 サポートインターフェイス
   有線LAN
@@ -51,18 +53,26 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
 
 ・ePOS-Print.h
   クラス定義、エラー値／デバイスタイプの定数定義を含むヘッダーファイルです。
+・ePOSEasySelect.h
+  簡単にプリンターを選択するためのヘッダーファイルです。
 ・libeposprint.a
-  機能実行用ライブラリーです。（ARMv6, ARMv7, ARMv7s, ARM64, i386 に対応）
+  機能実行用ライブラリーです。（ARMv6, ARMv7, ARMv7s, ARM64, i386, x86_64 に対応）
+・libeposeasyselect.a
+  簡単にプリンターを選択するためのライブラリーです。（ARMv7, ARMv7s, ARM64, i386, x86_64 に対応）
 ・ePOS-Print_Sample_iOS.zip
   サンプルプログラムファイルです。
 ・EULA.jp.txt
   SOFTWARE LICENSE AGREEMENT が記載されています。
 ・EULA.en.txt
   SOFTWARE LICENSE AGREEMENT（英語版）が記載されています。
-・ePOS-Print_SDK_iOS_J_RevM.pdf
+・ePOS-Print_SDK_iOS_ja_revN.pdf
   ユーザーズマニュアルです。
-・ePOS-Print_SDK_iOS_E_RevM.pdf
+・ePOS-Print_SDK_iOS_en_revN.pdf
   ユーザーズマニュアル（英語版）です。
+・ePOS-Print_SDK_iOS_AppDevGuide_J_RevA.pdf
+  開発者ガイドです。
+・ePOS-Print_SDK_iOS_AppDevGuide_E_RevA.pdf
+  開発者ガイド（英語版）です。
 ・README.jp.txt
   本書です。
 ・README.en.txt
@@ -74,8 +84,30 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
 ・使用方法、使用上の注意、等の詳細は、ユーザーズマニュアルを参照し、
   ご使用ください。
 
-
 4.旧バージョンからの変更点
+
+  Version 1.6.0a
+    ・対応iOSバージョンを追加。
+      ・iOS 8.0 - 8.0.2
+    ・対応iOS端末を追加。
+      ・iPhone 6
+      ・iPhone 6 Plus
+    ・サンプルプログラムのiOS8対応。
+
+  Version 1.6.0
+    ・サポートプリンターを追加。
+      ・TM-P20
+    ・デバイス名取得用の検索APIを追加。
+    ・対応iOSバージョンを追加。
+      ・iOS 7.1.2
+    ・openPrinter(タイムアウト時間設定用) APIを追加。
+    ・openPrinter APIの機能改善。
+      ・TCP接続時のdeviceNameに、MACアドレス、ホスト名を指定できるように改善。
+    ・ログの機能改善。
+      ・バックアップファイルの圧縮対応。
+      ・出力内容の見直し。
+    ・仕様変更。
+      ・TCP接続時、既に他の端末からポートオープンされていたら、指定時間経過後エラーを返すように変更。
 
   Version 1.5.0
     ・対応iOSバージョンを追加。

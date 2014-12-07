@@ -1,7 +1,7 @@
 //
 //  Copyright Seiko Epson Corporation 2012-2014 All rights reserved.
 //
-//  Ver.1.5.0
+//  Ver.1.6.0
 
 #ifdef __OBJC__
 #import <Foundation/Foundation.h>
@@ -31,7 +31,7 @@
 #define EPOS_OC_ST_BUZZER (0x01000000)
 
 #define EPOS_OC_SDK_NAME        "ePOS-Print SDK for iOS"
-#define EPOS_OC_SDK_VERSION     "1.5.0"
+#define EPOS_OC_SDK_VERSION     "1.6.0"
 
 enum EposOcErrorStatus {
 	EPOS_OC_SUCCESS = 0,		/* Success */
@@ -76,7 +76,9 @@ enum EposOcLang {
 enum EposOcFont {
 	EPOS_OC_FONT_A = 0,
 	EPOS_OC_FONT_B,
-	EPOS_OC_FONT_C
+	EPOS_OC_FONT_C,
+	EPOS_OC_FONT_D,
+	EPOS_OC_FONT_E,
 };
 
 enum EposOcColor {
@@ -344,6 +346,7 @@ enum EposOcLogLevel {
 - (void) dealloc;
 - (int) openPrinter:(int)deviceType DeviceName:(NSString *)deviceName;
 - (int) openPrinter:(int)deviceType DeviceName:(NSString *)deviceName Enabled:(int)enabled Interval:(long)interval;
+- (int) openPrinter:(int)deviceType DeviceName:(NSString *)deviceName Enabled:(int)enabled Interval:(long)interval Timeout:(long)timeout;
 - (int) closePrinter;
 - (int) sendData:(EposBuilder *)builder Timeout:(long)timeout Status:(unsigned long *)status;
 - (int) sendData:(EposBuilder *)builder Timeout:(long)timeout Status:(unsigned long *)status Battery:(unsigned long *)battery;
@@ -371,6 +374,8 @@ enum EposOcLogLevel {
 @end
 
 /* EPSONIo */
+#define EPSONIO_OC_PARAM_DEFAULT (-2)
+
 enum EPSONIoOcErrType {
     EPSONIO_OC_SUCCESS = 0,         /* Success */
     EPSONIO_OC_ERR_PARAM,               /* Invalid parameter */
@@ -386,6 +391,11 @@ enum EPSONIoOcErrType {
 enum EPSONIoOcDevType {
     EPSONIO_OC_DEVTYPE_TCP       = (0x00101),
     EPSONIO_OC_DEVTYPE_BLUETOOTH = (0x00102),
+};
+
+enum EPSONIoOcFilterOption {
+    EPSONIO_OC_FILTER_NONE = 0,
+    EPSONIO_OC_FILTER_NAME
 };
 
 @interface EpsonIo : NSObject {
@@ -407,6 +417,18 @@ enum EPSONIoOcDevType {
 
 @end
 
+@interface EpsonIoDeviceInfo : NSObject {
+@private
+}
+
+@property (nonatomic, readonly) int deviceType;
+@property (nonatomic, copy, readonly) NSString *printerName;
+@property (nonatomic, copy, readonly) NSString *deviceName;
+@property (nonatomic, copy, readonly) NSString *ipAddress;
+@property (nonatomic, copy, readonly) NSString *macAddress;
+
+@end
+
 @interface EpsonIoFinder : NSObject {
 @private
 }
@@ -414,6 +436,8 @@ enum EPSONIoOcDevType {
 + (int) start:(int)deviceType FindOption:(NSString *)findOption;
 
 + (NSArray *) getResult:(int *)errorStatus;
+
++ (NSArray *) getDeviceInfoList:(int *)errorStatus FilterOption:(int)filterOption;
 
 + (int) stop;
 
