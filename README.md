@@ -1,3 +1,5 @@
+Add "com.epson.escpos" in Supported External Accessory Protocol in your application info.plist
+
 ==========================================================================
           ePOS-Print SDK for iOS  Version 1.6.0a
 

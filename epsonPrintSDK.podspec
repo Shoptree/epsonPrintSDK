@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/Shoptree/epsonPrintSDK.git', :tag => s.version.to_s }
   s.source_files  = 'ePOS-Print.h'
   s.preserve_paths = 'libeposprint.a'
-  s.frameworks = 'UIKit', 'CoreGraphics'
+  s.frameworks = 'UIKit', 'CoreGraphics', 'ExternalAccessory'
   s.library   = 'eposprint', 'z'
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/epsonPrintSDK"' }
 end
