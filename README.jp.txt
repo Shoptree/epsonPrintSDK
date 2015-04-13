@@ -1,7 +1,7 @@
 ==========================================================================
-          ePOS-Print SDK for iOS  Version 1.6.0a
+          ePOS-Print SDK for iOS  Version 1.7.0
 
-          Copyright Seiko Epson Corporation 2012-2014 All rights reserved.
+          Copyright Seiko Epson Corporation 2012-2015 All rights reserved.
 ==========================================================================
 
 1.本ソフトウェアについて
@@ -19,12 +19,13 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
   iOS 6.0 - 6.1.4
   iOS 7.0 - 7.1.2
   iOS 8.0 - 8.0.2
+  iOS 8.2
 
 対応iOS端末
   iPhone ( 3G / 3GS / 4 / 4S / 5 / 5c / 5s / 6 / 6 Plus )
   iPod touch ( 第2世代 / 第3世代 / 第4世代 / 第5世代 )
-  iPad / iPad2 / iPad ( 第3世代 / 第4世代 ) / iPad Air
-  iPad mini / iPad mini with Retina display
+  iPad / iPad2 / iPad ( 第3世代 / 第4世代 ) / iPad Air / iPad Air 2
+  iPad mini / iPad mini 2 (iPad mini with Retina display) / iPad mini 3
 
 サポートプリンター
   EPSON TM-T88V
@@ -65,9 +66,9 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
   SOFTWARE LICENSE AGREEMENT が記載されています。
 ・EULA.en.txt
   SOFTWARE LICENSE AGREEMENT（英語版）が記載されています。
-・ePOS-Print_SDK_iOS_ja_revN.pdf
+・ePOS-Print_SDK_iOS_ja_revO.pdf
   ユーザーズマニュアルです。
-・ePOS-Print_SDK_iOS_en_revN.pdf
+・ePOS-Print_SDK_iOS_en_revO.pdf
   ユーザーズマニュアル（英語版）です。
 ・ePOS-Print_SDK_iOS_AppDevGuide_J_RevA.pdf
   開発者ガイドです。
@@ -85,6 +86,17 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
   ご使用ください。
 
 4.旧バージョンからの変更点
+
+  Version 1.7.0
+    ・対応iOSバージョンを追加。
+      ・iOS 8.2
+    ・対応iOS端末を追加。
+      ・iPad Air 2
+      ・iPad mini 3
+    ・対応言語を追加。
+      ・インド語
+    ・openPrinter APIの機能改善。
+      ・Bluetooth接続時、指定するMACアドレスに小文字が含まれていてもポートオープンできるように改善。
 
   Version 1.6.0a
     ・対応iOSバージョンを追加。

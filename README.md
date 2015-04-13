@@ -1,9 +1,9 @@
 Add "com.epson.escpos" in Supported External Accessory Protocol in your application info.plist
 
 ==========================================================================
-          ePOS-Print SDK for iOS  Version 1.6.0a
+          ePOS-Print SDK for iOS  Version 1.7.0
 
-          Copyright Seiko Epson Corporation 2012-2014 All rights reserved.
+          Copyright Seiko Epson Corporation 2012-2015 All rights reserved.
 ==========================================================================
 
 1. About this software
@@ -21,12 +21,13 @@ iOS Versions
   iOS 6.0 to 6.1.4
   iOS 7.0 to 7.1.2
   iOS 8.0 to 8.0.2
+  iOS 8.2
 
 iOS Devices
   iPhone ( 3G / 3GS / 4 / 4S / 5 / 5c / 5s / 6 / 6 Plus )
   iPod touch ( 2nd generation / 3rd generation / 4th generation / 5th generation )
-  iPad / iPad2 / iPad ( 3rd generation / 4th generation ) / iPad Air
-  iPad mini / iPad mini with Retina display
+  iPad / iPad2 / iPad ( 3rd generation / 4th generation ) / iPad Air / iPad Air 2
+  iPad mini / iPad mini 2 (iPad mini with Retina display) / iPad mini 3
 
 Supported Printers
   EPSON TM-T88V
@@ -58,6 +59,8 @@ Supported Interfaces
   constant definitions.
 - ePOSEasySelect.h
   Header file for selecting a printer easily.
+- ePOSBluetoothConnection.h
+  Header file that includes bluetooth connection class definitions and error value.
 - libeposprint.a
   Library for function execution. (armv6, armv7, armv7s, arm64, i386, x86_64 supported)
 - libeposeasyselect.a
@@ -68,9 +71,9 @@ Supported Interfaces
   Contains the SOFTWARE LICENSE AGREEMENT.
 - EULA.jp.txt
   Contains the SOFTWARE LICENSE AGREEMENT. (The Japanese-language edition)
-- ePOS-Print_SDK_iOS_en_revN.pdf
+- ePOS-Print_SDK_iOS_en_revO.pdf
   A user's manual.
-- ePOS-Print_SDK_iOS_ja_revN.pdf
+- ePOS-Print_SDK_iOS_ja_revO.pdf
   A user's manual. (The Japanese-language edition)
 - ePOS-Print_SDK_iOS_AppDevGuide_E_RevA.pdf
   A developer's guide
@@ -86,6 +89,19 @@ Supported Interfaces
 - For detailed information, please see ePOS-Print SDK for iOS User's Manual.
 
 4. Modification from the old version
+
+  Version 1.7.0
+    - Added the Bluetooth connection and disconnection APIs.
+    - Added the support iOS version.
+      - iOS 8.2
+    - Added the support iOS Devices.
+      - iPad Air 2
+      - iPad mini 3
+    - Added the support languages.
+      - Indian
+    - Improved the openPrinter API.
+      - The openPrinter method succeeds even if the small letter is specified for the MAC address.
+        (Only Bluetooth connection)
 
   Version 1.6.0a
     - Added the support iOS version.

@@ -1,7 +1,7 @@
 //
-//  Copyright Seiko Epson Corporation 2012-2014 All rights reserved.
+//  Copyright Seiko Epson Corporation 2012-2015 All rights reserved.
 //
-//  Ver.1.6.0
+//  Ver.1.7.0
 
 #ifdef __OBJC__
 #import <Foundation/Foundation.h>
@@ -31,7 +31,7 @@
 #define EPOS_OC_ST_BUZZER (0x01000000)
 
 #define EPOS_OC_SDK_NAME        "ePOS-Print SDK for iOS"
-#define EPOS_OC_SDK_VERSION     "1.6.0"
+#define EPOS_OC_SDK_VERSION     "1.7.0"
 
 enum EposOcErrorStatus {
 	EPOS_OC_SUCCESS = 0,		/* Success */
