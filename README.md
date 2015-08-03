@@ -1,7 +1,7 @@
 Add "com.epson.escpos" in Supported External Accessory Protocol in your application info.plist
 
 ==========================================================================
-          ePOS-Print SDK for iOS  Version 1.7.0
+          ePOS-Print SDK for iOS  Version 1.9.0a
 
           Copyright Seiko Epson Corporation 2012-2015 All rights reserved.
 ==========================================================================
@@ -18,10 +18,10 @@ For detailed information, please see ePOS-Print SDK for iOS User's Manual.
 iOS Versions
   iOS 4.2 to 4.3.5
   iOS 5.0 to 5.1.1
-  iOS 6.0 to 6.1.4
+  iOS 6.0 to 6.1.6
   iOS 7.0 to 7.1.2
   iOS 8.0 to 8.0.2
-  iOS 8.2
+  iOS 8.2 to 8.4
 
 iOS Devices
   iPhone ( 3G / 3GS / 4 / 4S / 5 / 5c / 5s / 6 / 6 Plus )
@@ -45,6 +45,7 @@ Supported Printers
   EPSON TM-P80
   EPSON TM-U330 series
   EPSON TM-P20
+  EPSON TM-m10
 
 Supported Interfaces
   Wired LAN
@@ -71,7 +72,7 @@ Supported Interfaces
   Contains the SOFTWARE LICENSE AGREEMENT.
 - EULA.jp.txt
   Contains the SOFTWARE LICENSE AGREEMENT. (The Japanese-language edition)
-- ePOS-Print_SDK_iOS_en_revO.pdf
+- ePOS-Print_SDK_iOS_en_revQ.pdf
   A user's manual.
 - ePOS-Print_SDK_iOS_ja_revO.pdf
   A user's manual. (The Japanese-language edition)
@@ -89,6 +90,30 @@ Supported Interfaces
 - For detailed information, please see ePOS-Print SDK for iOS User's Manual.
 
 4. Modification from the old version
+  Version 1.9.0a
+    - Added the support iOS version.
+      - iOS 8.4
+    - Bug Fixed.
+      - In ePOSReceiptPrintSample, when the TM-T88V is to print on the paper of the paper width 58mm,
+        a new line enters the middle of a line.
+
+  Version 1.9.0
+    - Added the support iOS version.
+      - iOS 8.3
+    - Added the beginTransaction API for beginning transaction.
+    - Added the endTransaction API for ending transaction.
+    - Added the getStatus API for getting the printer status.
+    - Added the support printers.
+      - TM-m10
+      - TM-P80 Autocutter model
+    - Bug Fixed.
+      - Under Bluetooth connection, application may crash if application calls the openPrinter
+        immediately after the closePrinter, during the 2-5 seconds after the printer turn off.
+
+  Version 1.7.1
+    - Bug Fixed.
+      - Under Bluetooth connection, the openPrinter method may fail if application calls it immediately
+        after the closePrinter method.
 
   Version 1.7.0
     - Added the Bluetooth connection and disconnection APIs.

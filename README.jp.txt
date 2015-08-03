@@ -1,5 +1,5 @@
 ==========================================================================
-          ePOS-Print SDK for iOS  Version 1.7.0
+          ePOS-Print SDK for iOS  Version 1.9.0a
 
           Copyright Seiko Epson Corporation 2012-2015 All rights reserved.
 ==========================================================================
@@ -16,10 +16,10 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
 対応iOSバージョン
   iOS 4.2 - 4.3.5
   iOS 5.0 - 5.1.1
-  iOS 6.0 - 6.1.4
+  iOS 6.0 - 6.1.6
   iOS 7.0 - 7.1.2
   iOS 8.0 - 8.0.2
-  iOS 8.2
+  iOS 8.2 - 8.4
 
 対応iOS端末
   iPhone ( 3G / 3GS / 4 / 4S / 5 / 5c / 5s / 6 / 6 Plus )
@@ -43,6 +43,7 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
   EPSON TM-P80（海外モデルのみ）
   EPSON TM-U330 シリーズ（海外モデルのみ）
   EPSON TM-P20
+  EPSON TM-m10（海外モデルのみ）
 
 サポートインターフェイス
   有線LAN
@@ -68,7 +69,7 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
   SOFTWARE LICENSE AGREEMENT（英語版）が記載されています。
 ・ePOS-Print_SDK_iOS_ja_revO.pdf
   ユーザーズマニュアルです。
-・ePOS-Print_SDK_iOS_en_revO.pdf
+・ePOS-Print_SDK_iOS_en_revQ.pdf
   ユーザーズマニュアル（英語版）です。
 ・ePOS-Print_SDK_iOS_AppDevGuide_J_RevA.pdf
   開発者ガイドです。
@@ -79,13 +80,31 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
 ・README.en.txt
   本書（英語版）です。
 
-
 3.その他留意点
 
 ・使用方法、使用上の注意、等の詳細は、ユーザーズマニュアルを参照し、
   ご使用ください。
 
-4.旧バージョンからの変更点
+4.旧バージョンからの変更点  
+  Version 1.9.0a
+    ・対応iOSバージョンを追加。
+      ・iOS 8.4
+    ・不具合修正。
+      ・ePOSReceiptPrintSampleにおいて、TM-T88Vで58mmの用紙に印刷した場合に文字列の途中で改行される。
+
+  Version 1.9.0
+    ・対応iOSバージョンを追加。
+      ・iOS 8.3
+    ・サポートプリンターを追加。
+      ・TM-m10
+    ・不具合修正。
+      ・Bluetooth接続時、プリンターの電源をOFFにして2～5秒後にclosePrinter、
+        openPrinterを連続して実行した場合に、アプリケーションが落ちることがある。
+
+ Version 1.7.1
+    ・不具合修正。
+      ・Bluetooth接続時、closePrinter APIの直後にopenPrinter APIを実行した場合に
+        openPrinter APIが失敗することがある。
 
   Version 1.7.0
     ・対応iOSバージョンを追加。

@@ -1,7 +1,7 @@
 //
 //  Copyright Seiko Epson Corporation 2012-2015 All rights reserved.
 //
-//  Ver.1.7.0
+//  Ver.1.9.0
 
 #ifdef __OBJC__
 #import <Foundation/Foundation.h>
@@ -29,9 +29,13 @@
 #define EPOS_OC_ST_RECEIPT_NEAR_END (0x00020000)
 #define EPOS_OC_ST_RECEIPT_END (0x00080000)
 #define EPOS_OC_ST_BUZZER (0x01000000)
+#define EPOS_OC_ST_HEAD_OVERHEAT (0x10000000)
+#define EPOS_OC_ST_MOTOR_OVERHEAT (0x20000000)
+#define EPOS_OC_ST_BATTERY_OVERHEAT (0x40000000)
+#define EPOS_OC_ST_WRONG_PAPER (0x00001000)
 
 #define EPOS_OC_SDK_NAME        "ePOS-Print SDK for iOS"
-#define EPOS_OC_SDK_VERSION     "1.7.0"
+#define EPOS_OC_SDK_VERSION     "1.9.0"
 
 enum EposOcErrorStatus {
 	EPOS_OC_SUCCESS = 0,		/* Success */
@@ -348,6 +352,9 @@ enum EposOcLogLevel {
 - (int) openPrinter:(int)deviceType DeviceName:(NSString *)deviceName Enabled:(int)enabled Interval:(long)interval;
 - (int) openPrinter:(int)deviceType DeviceName:(NSString *)deviceName Enabled:(int)enabled Interval:(long)interval Timeout:(long)timeout;
 - (int) closePrinter;
+- (int) beginTransaction;
+- (int) endTransaction;
+- (int) getStatus:(unsigned long *)status Battery:(unsigned long *)battery;
 - (int) sendData:(EposBuilder *)builder Timeout:(long)timeout Status:(unsigned long *)status;
 - (int) sendData:(EposBuilder *)builder Timeout:(long)timeout Status:(unsigned long *)status Battery:(unsigned long *)battery;
 - (void) setStatusChangeEventCallback: (SEL) method Target: (NSObject*) target;
