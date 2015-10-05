@@ -1,7 +1,7 @@
 //
 //  Copyright Seiko Epson Corporation 2012-2015 All rights reserved.
 //
-//  Ver.1.9.0
+//  Ver.1.10.0
 
 #ifdef __OBJC__
 #import <Foundation/Foundation.h>
@@ -35,7 +35,7 @@
 #define EPOS_OC_ST_WRONG_PAPER (0x00001000)
 
 #define EPOS_OC_SDK_NAME        "ePOS-Print SDK for iOS"
-#define EPOS_OC_SDK_VERSION     "1.9.0"
+#define EPOS_OC_SDK_VERSION     "1.10.0"
 
 enum EposOcErrorStatus {
 	EPOS_OC_SUCCESS = 0,		/* Success */

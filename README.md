@@ -1,7 +1,7 @@
 Add "com.epson.escpos" in Supported External Accessory Protocol in your application info.plist
 
 ==========================================================================
-          ePOS-Print SDK for iOS  Version 1.9.0a
+          ePOS-Print SDK for iOS  Version 1.10.0
 
           Copyright Seiko Epson Corporation 2012-2015 All rights reserved.
 ==========================================================================
@@ -21,7 +21,7 @@ iOS Versions
   iOS 6.0 to 6.1.6
   iOS 7.0 to 7.1.2
   iOS 8.0 to 8.0.2
-  iOS 8.2 to 8.4
+  iOS 8.2 to 8.4.1
 
 iOS Devices
   iPhone ( 3G / 3GS / 4 / 4S / 5 / 5c / 5s / 6 / 6 Plus )
@@ -46,6 +46,7 @@ Supported Printers
   EPSON TM-U330 series
   EPSON TM-P20
   EPSON TM-m10
+  EPSON TM-m30
 
 Supported Interfaces
   Wired LAN
@@ -72,7 +73,7 @@ Supported Interfaces
   Contains the SOFTWARE LICENSE AGREEMENT.
 - EULA.jp.txt
   Contains the SOFTWARE LICENSE AGREEMENT. (The Japanese-language edition)
-- ePOS-Print_SDK_iOS_en_revQ.pdf
+- ePOS-Print_SDK_iOS_en_revR.pdf
   A user's manual.
 - ePOS-Print_SDK_iOS_ja_revO.pdf
   A user's manual. (The Japanese-language edition)
@@ -90,6 +91,16 @@ Supported Interfaces
 - For detailed information, please see ePOS-Print SDK for iOS User's Manual.
 
 4. Modification from the old version
+
+  Version 1.10.0
+    - Added the support printers.
+      - TM-m30
+    - Bug Fixed.
+      - When application prints a compressed image data, if image data having a size larger than the printing area,
+        it can not be printed correctly. (Horizontal width of approximately 700 dot - 1000 dot)
+      - At printing process. If the system notify signal to the application before process returns from the SDK, print error may occur.
+      - At the printer that supports interrupt printing function. When the printer prints graphics from some smart device, print error may occur.
+
   Version 1.9.0a
     - Added the support iOS version.
       - iOS 8.4

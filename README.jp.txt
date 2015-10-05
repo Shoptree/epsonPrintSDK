@@ -1,5 +1,5 @@
 ==========================================================================
-          ePOS-Print SDK for iOS  Version 1.9.0a
+          ePOS-Print SDK for iOS  Version 1.10.0
 
           Copyright Seiko Epson Corporation 2012-2015 All rights reserved.
 ==========================================================================
@@ -19,7 +19,7 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
   iOS 6.0 - 6.1.6
   iOS 7.0 - 7.1.2
   iOS 8.0 - 8.0.2
-  iOS 8.2 - 8.4
+  iOS 8.2 - 8.4.1
 
 対応iOS端末
   iPhone ( 3G / 3GS / 4 / 4S / 5 / 5c / 5s / 6 / 6 Plus )
@@ -44,6 +44,7 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
   EPSON TM-U330 シリーズ（海外モデルのみ）
   EPSON TM-P20
   EPSON TM-m10（海外モデルのみ）
+  EPSON TM-m30（海外モデルのみ）
 
 サポートインターフェイス
   有線LAN
@@ -69,7 +70,7 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
   SOFTWARE LICENSE AGREEMENT（英語版）が記載されています。
 ・ePOS-Print_SDK_iOS_ja_revO.pdf
   ユーザーズマニュアルです。
-・ePOS-Print_SDK_iOS_en_revQ.pdf
+・ePOS-Print_SDK_iOS_en_revR.pdf
   ユーザーズマニュアル（英語版）です。
 ・ePOS-Print_SDK_iOS_AppDevGuide_J_RevA.pdf
   開発者ガイドです。
@@ -86,6 +87,18 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
   ご使用ください。
 
 4.旧バージョンからの変更点  
+
+  Version 1.10.0
+    ・サポートプリンターを追加。
+      ・TM-m30 (海外モデルのみ）
+    ・不具合修正。
+      ・印字領域よりも大きなサイズ（横幅が約700dot～1000dot）の画像データを画像圧縮設定で印刷したときに、正しく印刷されない。
+      ・印刷時のタイムアウトを長めに設定して印刷を実行し、印刷が終わらないなどの理由で
+        SDKからアプリに処理が戻るのに時間がかかる状況で、ユーザーがアプリの画面を繰り返しタップするなどして
+        システムからアプリにシグナル通知が行われた場合に、印刷処理がエラーになることがある。
+      ・割り込み印刷可能な機種で、端末Aからグラフィック印刷、端末Bから印刷、端末Aで印刷という順序で
+        印刷を行った場合に、端末Aの印刷がエラーになることがある。
+
   Version 1.9.0a
     ・対応iOSバージョンを追加。
       ・iOS 8.4
@@ -96,7 +109,7 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
     ・対応iOSバージョンを追加。
       ・iOS 8.3
     ・サポートプリンターを追加。
-      ・TM-m10
+      ・TM-m10 (海外モデルのみ）
     ・不具合修正。
       ・Bluetooth接続時、プリンターの電源をOFFにして2～5秒後にclosePrinter、
         openPrinterを連続して実行した場合に、アプリケーションが落ちることがある。
