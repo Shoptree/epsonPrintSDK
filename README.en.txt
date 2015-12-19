@@ -1,5 +1,5 @@
 ==========================================================================
-          ePOS-Print SDK for iOS  Version 1.10.0
+          ePOS-Print SDK for iOS  Version 1.10.1
 
           Copyright Seiko Epson Corporation 2012-2015 All rights reserved.
 ==========================================================================
@@ -20,12 +20,15 @@ iOS Versions
   iOS 7.0 to 7.1.2
   iOS 8.0 to 8.0.2
   iOS 8.2 to 8.4.1
+  iOS 9.0 to 9.1
 
 iOS Devices
-  iPhone ( 3G / 3GS / 4 / 4S / 5 / 5c / 5s / 6 / 6 Plus )
-  iPod touch ( 2nd generation / 3rd generation / 4th generation / 5th generation )
+  iPhone ( 3G / 3GS / 4 / 4S / 5 / 5c / 5s / 6 / 6 Plus / 6s / 6s Plus )
+  iPod touch ( 2nd generation / 3rd generation / 4th generation / 5th generation
+  / 6th generation )
   iPad / iPad2 / iPad ( 3rd generation / 4th generation ) / iPad Air / iPad Air 2
   iPad mini / iPad mini 2 (iPad mini with Retina display) / iPad mini 3
+  / iPad mini 4
 
 Supported Printers
   EPSON TM-T88V
@@ -88,7 +91,18 @@ Supported Interfaces
 
 - For detailed information, please see ePOS-Print SDK for iOS User's Manual.
 
+- Under TCP/IP connection at iOS9.x, set the default gateway address to the network router.
+
 4. Modification from the old version
+
+  Version 1.10.1
+    - Added the support iOS version.
+      - iOS 9.0 to 9.1
+    - Added the support iOS Devices.
+      - iPhone 6s
+      - iPhone 6s Plus
+      - iPod touch 6th generation
+      - iPad mini 4
 
   Version 1.10.0
     - Added the support printers.

@@ -1,5 +1,5 @@
 ==========================================================================
-          ePOS-Print SDK for iOS  Version 1.10.0
+          ePOS-Print SDK for iOS  Version 1.10.1
 
           Copyright Seiko Epson Corporation 2012-2015 All rights reserved.
 ==========================================================================
@@ -20,12 +20,14 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
   iOS 7.0 - 7.1.2
   iOS 8.0 - 8.0.2
   iOS 8.2 - 8.4.1
+  iOS 9.0 - 9.1
 
 対応iOS端末
-  iPhone ( 3G / 3GS / 4 / 4S / 5 / 5c / 5s / 6 / 6 Plus )
-  iPod touch ( 第2世代 / 第3世代 / 第4世代 / 第5世代 )
+  iPhone ( 3G / 3GS / 4 / 4S / 5 / 5c / 5s / 6 / 6 Plus / 6s / 6s Plus )
+  iPod touch ( 第2世代 / 第3世代 / 第4世代 / 第5世代 / 第6世代 )
   iPad / iPad2 / iPad ( 第3世代 / 第4世代 ) / iPad Air / iPad Air 2
   iPad mini / iPad mini 2 (iPad mini with Retina display) / iPad mini 3
+  / iPad mini 4
 
 サポートプリンター
   EPSON TM-T88V
@@ -86,7 +88,19 @@ ePOS-Print SDK には、Androidデバイス向けの ePOS-Print SDK for Android も
 ・使用方法、使用上の注意、等の詳細は、ユーザーズマニュアルを参照し、
   ご使用ください。
 
+・iOS9、TCP/IP接続でEpsonIoFinderクラスのstart APIを実行する場合、
+　ネットワークのルーターにデフォルトゲートウェイを設定してください。
+
 4.旧バージョンからの変更点  
+
+  Version 1.10.1
+    ・対応iOSバージョンを追加。
+      ・iOS 9.0 - 9.1
+    ・対応iOS端末を追加。
+      ・iPhone 6s
+      ・iPhone 6s Plus
+      ・iPod touch 第6世代
+      ・iPad mini 4
 
   Version 1.10.0
     ・サポートプリンターを追加。
