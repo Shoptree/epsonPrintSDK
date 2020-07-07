@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = 'epsonPrintSDK'
-  s.version      = '2.12.0'
-  s.summary      = 'Epson ePOS_SDK_iOS_v2.12.0 for iOS'
+  s.version      = '2.14.0'
+  s.summary      = 'Epson ePOS_SDK_iOS_v2.14.0 for iOS'
   s.description  = <<-DESC
                     The Epson ePOS SDK for iOS is an SDK aimed at development engineers who 
                     are developing iOS applications for printing on an EPSON TM printer and 
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.homepage     = 'https://download.epson-biz.com/modules/pos/index.php?page=soft&scat=58'
   s.license      = { :type => 'Commercial', :file => 'LICENSE' }
   s.author       = { 'SEIKO EPSON CORPORATION' => 'contact@epson.com' }
-  s.platform     = :ios, '5.0'
+  s.platform     = :ios, '11.0'
   s.source       = { :git => 'https://github.com/Shoptree/epsonPrintSDK.git', :tag => s.version.to_s }
   s.source_files  = '*.h'
   s.preserve_paths = 'libepos2.a'

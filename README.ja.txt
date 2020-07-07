@@ -1,7 +1,7 @@
-﻿=========================================================================
-          Epson ePOS SDK for iOS Version 2.12.0
+=========================================================================
+          Epson ePOS SDK for iOS Version 2.14.0
 
-          Copyright (C) Seiko Epson Corporation 2015 - 2019. All rights reserved.
+          Copyright (C) Seiko Epson Corporation 2015 - 2020. All rights reserved.
 =========================================================================
 
 1.本ソフトウェアについて
@@ -13,24 +13,24 @@ ePOS SDK には、Androidデバイス向けの Epson ePOS SDK for Android も用
 ています。
 詳細は Epson ePOS SDK for iOS ユーザーズマニュアル を参照ください。
 
-対応iOSバージョン
-  iOS 9.0 - 9.2.1
+対応iOS/iPadOSバージョン
   iOS 10.0.1
   iOS 10.2 - 10.3.2
   iOS 11 - 11.4.1
-  iOS 12 - 12.2
+  iOS 12 - 12.4.3
+  iOS 13 - 13.3
+  iPadOS 13.1 - 13.3
 
-対応iOS端末
-  iPhone ( 4S / 5 / 5c / 5s / 6 / 6 Plus / 6s / 6s Plus / SE / 7 / 7 Plus / 8 / 8 Plus / X)
-  iPod touch ( 第5世代 / 第6世代 )
-  iPad2 / iPad ( 第3世代 / 第4世代 / 第5世代 / 第6世代 )
+対応iOS/iPadOS端末
+  iPhone ( 5 / 5c / 5s / 6 / 6 Plus / 6s / 6s Plus / SE / 7 / 7 Plus / 8 / 8 Plus / X )
+  iPod touch ( 第6世代 )
+  iPad ( 第4世代 / 第5世代 / 第6世代 )
   iPad Pro ( 12.9-inch / 9.7-inch / 12.9-inch 2nd / 10.5-inch)
   iPad Air / iPad Air 2
-  iPad mini / iPad mini 2 (iPad mini with Retina display) / iPad mini 3
-  / iPad mini 4
+  iPad mini 2 (iPad mini with Retina display) / iPad mini 3 / iPad mini 4
 
 動作確認XCodeバージョン
-  XCode10.1
+  XCode11.3
 
 サポートTMプリンター
   EPSON TM-T100（海外モデルのみ）
@@ -38,7 +38,7 @@ ePOS SDK には、Androidデバイス向けの Epson ePOS SDK for Android も用
   EPSON TM-T20II
   EPSON TM-T20III
   EPSON TM-T20IIIL（海外モデルのみ）
-  EPSON TM-T20X（海外モデルのみ）
+  EPSON TM-T20X
   EPSON TM-T60（海外モデルのみ）
   EPSON TM-T70
   EPSON TM-T70II
@@ -61,6 +61,8 @@ ePOS SDK には、Androidデバイス向けの Epson ePOS SDK for Android も用
   EPSON TM-U330 シリーズ（海外モデルのみ）
   EPSON TM-m10
   EPSON TM-m30
+  EPSON TM-m30II
+  EPSON TM-m30II-H
   EPSON TM-H6000V（海外モデルのみ）
 
 サポートTMインテリジェントプリンター
@@ -88,6 +90,7 @@ ePOS SDK には、Androidデバイス向けの Epson ePOS SDK for Android も用
     有線LAN
     無線LAN
     Bluetooth
+    USB
   TMインテリジェントプリンター
     有線LAN
   ネットワークプリンター
@@ -180,6 +183,38 @@ ePOS SDK には、Androidデバイス向けの Epson ePOS SDK for Android も用
   connectを実行する前に100msec程度のWaitを入れてください。
 
 5.バージョン履歴
+
+  Version 2.14.0
+    ・対応iOS/iPadOSバージョンを追加
+      ・iOS 13.3
+      ・iPadOS 13.3
+    ・サポートTMプリンターを追加
+      ・TM-m30II
+      ・TM-m30II-H
+    ・新機能追加
+      ・まとめ反転印刷に対応
+      ・UTF-8の印刷に対応
+
+  Version 2.13.0
+    ・対応iOS/iPadOSバージョンを追加
+      ・iOS 12.3 - 12.4.3
+      ・iOS 13 - 13.2.3
+      ・iPadOS 13.1 - 13.2.3
+    ・対応iOSバージョンからiOS9.xを削除
+    ・対応iOS/iPadOS端末から以下を削除
+      ・iPhone 4S
+      ・iPod touch 5th generation
+      ・iPad2 / iPad 3rd generation
+      ・iPad mini
+
+  Version 2.12.2
+    ・不具合修正
+      ・endTransaction APIを実行すると、極めて低い確率でフリーズする現象を修正
+
+  Version 2.12.1
+    ・不具合修正
+      ・Discoveryクラスのstart APIを実行すると、稀にパラメータエラーを返す現象を修正
+      ・連続してAPIを実行すると稀にフリーズする現象を修正
 
   Version 2.12.0
     ・対応iOSバージョンを追加

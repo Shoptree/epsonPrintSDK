@@ -1,9 +1,9 @@
 Add "com.epson.escpos" in Supported External Accessory Protocol in your application info.plist
 
 =========================================================================
-          Epson ePOS SDK for iOS Version 2.12.0
+          Epson ePOS SDK for iOS Version 2.14.0
 
-          Copyright (C) Seiko Epson Corporation 2015 - 2019. All rights reserved.
+          Copyright (C) Seiko Epson Corporation 2015 - 2020. All rights reserved.
 =========================================================================
 
 1. About this software
@@ -16,24 +16,24 @@ Epson ePOS SDK for Android for Android devices is also provided in
 Epson ePOS SDK.
 For detailed information, please see Epson ePOS SDK for iOS User's Manual.
 
-iOS Versions
-  iOS 9.0 to 9.2.1
+iOS/iPadOS Versions
   iOS 10.0.1
   iOS 10.2 to 10.3.2
   iOS 11 to 11.4.1
-  iOS 12 to 12.2
+  iOS 12 to 12.4.3
+  iOS 13 to 13.3
+  iPadOS 13.1 to 13.3
 
-iOS Devices
-  iPhone ( 4S / 5 / 5c / 5s / 6 / 6 Plus / 6s / 6s Plus / SE / 7 / 7 Plus / 8 / 8 Plus / X)
-  iPod touch ( 5th generation / 6th generation )
-  iPad2 / iPad ( 3rd generation / 4th generation / 5th generation / 6th generation )
+iOS/iPadOS Devices
+  iPhone ( 5 / 5c / 5s / 6 / 6 Plus / 6s / 6s Plus / SE / 7 / 7 Plus / 8 / 8 Plus / X )
+  iPod touch ( 6th generation )
+  iPad ( 4th generation / 5th generation / 6th generation )
   iPad Pro ( 12.9-inch / 9.7-inch / 12.9-inch 2nd / 10.5-inch)
   iPad Air / iPad Air 2
-  iPad mini / iPad mini 2 (iPad mini with Retina display) / iPad mini 3
-   / iPad mini 4
+  iPad mini 2 (iPad mini with Retina display) / iPad mini 3 / iPad mini 4
 
 Confirmation XCode Version
-  XCode10.1
+  XCode11.3
 
 Supported TM Printers
   EPSON TM-T100
@@ -64,6 +64,8 @@ Supported TM Printers
   EPSON TM-U330 series
   EPSON TM-m10
   EPSON TM-m30
+  EPSON TM-m30II
+  EPSON TM-m30II-H
   EPSON TM-H6000V
 
 Supported TM Intelligent Printers
@@ -91,6 +93,7 @@ Supported Interfaces
     Wired LAN
     Wireless LAN
     Bluetooth
+    USB
   TM Intelligent Printer
     Wired LAN
   Network Printers
@@ -183,6 +186,41 @@ Supported Interfaces
   about 100 msec before executing connect API.
 
 5. Version History
+
+  Version 2.14.0
+    - Added support iOS/iPadOS versions
+      - iOS 13 to 13.3
+      - iPadOS 13.1 to 13.3
+    - Added TM printer support
+      - TM-m30II
+      - TM-m30II-H
+    - Added new functions
+      - Batch rotate printing
+      - UTF-8 printing
+
+  Version 2.13.0
+    - Added support iOS/iPadOS versions
+      - iOS 12.3 to 12.4.3
+      - iOS 13 to 13.2.3
+      - iPadOS 13.1 to 13.2.3
+    - iOS 9.x was removed from support OS
+    - Removed support iOS/iPadOS Devices
+      - iPhone 4S
+      - iPod touch 5th generation
+      - iPad2 / iPad 3rd generation
+      - iPad mini
+    - Added new functions
+      - GermanyFiscalElement class
+      - FirmwareUpdate method in Epos2Printer class
+
+  Version 2.12.2
+    - Bug fix
+      - Fixed issue where endTransaction API rarely causes an application to hang up. 
+
+  Version 2.12.1
+    - Bug fix
+      - Fixed issue parameter error is rarely returned when call start API in Discovery class.
+      - Fixed issue application hang up rarely when calling several API continuously.
 
   Version 2.12.0
     - Added iOS version support

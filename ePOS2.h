@@ -1,7 +1,7 @@
 //
-//  Copyright (C) Seiko Epson Corporation 2016 - 2019. All rights reserved.
+//  Copyright (C) Seiko Epson Corporation 2016 - 2020. All rights reserved.
 //
-//  ePOS SDK Ver.2.12.0
+//  ePOS SDK Ver.2.14.0
 
 #ifdef __OBJC__
 #import <Foundation/Foundation.h>
@@ -100,6 +100,9 @@
 #define EPOS2_VK_OEM_7        (0xDE)
 #define EPOS2_VK_OEM_ATTN     (0xF0)
 
+/* getCommand option */
+//#define EPOS2_GET_COMMAND_BODY   (0x00000000) /* only body command */
+
 enum Epos2ErrorStatus : int {
     EPOS2_SUCCESS = 0,
     EPOS2_ERR_PARAM,
@@ -117,6 +120,7 @@ enum Epos2ErrorStatus : int {
     EPOS2_ERR_BOX_COUNT_OVER,
     EPOS2_ERR_BOX_CLIENT_OVER,
     EPOS2_ERR_UNSUPPORTED,
+    EPOS2_ERR_DEVICE_BUSY,
     EPOS2_ERR_FAILURE = 255
 };
 
@@ -155,12 +159,17 @@ enum Epos2CallbackCode : int {
     EPOS2_CODE_ERR_INSERTED,
     EPOS2_CODE_ERR_WAIT_REMOVAL,
     EPOS2_CODE_ERR_DEVICE_BUSY,
+    EPOS2_CODE_ERR_GET_JSON_SIZE,
     EPOS2_CODE_ERR_IN_USE,
     EPOS2_CODE_ERR_CONNECT,
     EPOS2_CODE_ERR_DISCONNECT,
+    EPOS2_CODE_ERR_DIFFERENT_MODEL,
+    EPOS2_CODE_ERR_DIFFERENT_VERSION,
     EPOS2_CODE_ERR_MEMORY,
     EPOS2_CODE_ERR_PROCESSING,
+    EPOS2_CODE_ERR_DATA_CORRUPTED,
     EPOS2_CODE_ERR_PARAM,
+    EPOS2_CODE_RETRY,
     EPOS2_CODE_ERR_FAILURE = 255
 };
 
@@ -186,7 +195,7 @@ enum Epos2PrinterSeries : int {
     EPOS2_TM_H6000,
     EPOS2_TM_T83III,
     EPOS2_TM_T100,
-
+    EPOS2_TM_M30II,
 };
 enum Epos2DisplayModel : int {
     EPOS2_DM_D30 = 0,
@@ -212,6 +221,7 @@ enum Epos2PortType : int {
     EPOS2_PORTTYPE_ALL = 0,
     EPOS2_PORTTYPE_TCP,
     EPOS2_PORTTYPE_BLUETOOTH,
+    EPOS2_PORTTYPE_USB,
 };
 enum Epos2StatusPaper : int {
     EPOS2_PAPER_OK = 0,
@@ -313,7 +323,8 @@ enum Epos2DeviceType : int {
     EPOS2_TYPE_POS_KEYBOARD,
     EPOS2_TYPE_CAT,
     EPOS2_TYPE_MSR,
-    EPOS2_TYPE_OTHER_PERIPHERAL
+    EPOS2_TYPE_OTHER_PERIPHERAL,
+    EPOS2_TYPE_GFE
 };
 
 enum Epos2Align : int {
@@ -329,7 +340,8 @@ enum Epos2Lang : int {
     EPOS2_LANG_ZH_TW,
     EPOS2_LANG_KO,
     EPOS2_LANG_TH,
-    EPOS2_LANG_VI
+    EPOS2_LANG_VI,
+    EPOS2_LANG_MULTI
 };
 
 enum Epos2Font : int {
@@ -748,6 +760,7 @@ enum Epos2PrinterSettingPrintSpeed : int {
 @class Epos2CAT;
 @class Epos2MSR;
 @class Epos2OtherPeripheral;
+@class Epos2GermanyFiscalElement;
 
 @class Epos2PrinterStatusInfo;
 @class Epos2HybridPrinterStatusInfo;
@@ -755,6 +768,7 @@ enum Epos2PrinterSettingPrintSpeed : int {
 @class Epos2CATDirectIOResult;
 @class Epos2MSRData;
 @class Epos2DeviceInfo;
+@class Epos2FirmwareInfo;
 
 @protocol Epos2ConnectionDelegate <NSObject>
 @required
@@ -921,11 +935,36 @@ enum Epos2PrinterSettingPrintSpeed : int {
 - (void) onOtherReceive:(Epos2OtherPeripheral *)otherObj eventName:(NSString *)eventName data:(NSString *)data;
 @end
 
+@protocol Epos2GermanyFiscalElementReceiveDelegate <NSObject>
+@required
+- (void) onGfeReceive:(Epos2GermanyFiscalElement *)germanyFiscalObj code:(int)code data:(NSString *)data;
+@end
+
 @protocol Epos2DiscoveryDelegate <NSObject>
 @required
 - (void) onDiscovery:(Epos2DeviceInfo *)deviceInfo;
 @end
 
+@protocol Epos2FirmwareListDownloadDelegate <NSObject>
+@required
+- (void) onFirmwareListDownload:(int)code firmwareList:(NSMutableArray<Epos2FirmwareInfo *> *)firmwareList;
+@end
+
+@protocol Epos2FirmwareInformationDelegate <NSObject>
+@required
+- (void) onFirmwareInformationReceive:(int)code firmwareInfo:(Epos2FirmwareInfo *)firmwareInfo;
+@end
+
+@protocol Epos2FirmwareUpdateDelegate <NSObject>
+@required
+- (void) onFirmwareUpdateProgress:(NSString *)task progress:(float)progress;
+- (void) onFirmwareUpdate:(int)code maxWaitTime:(int)maxWaitTime;
+@end
+
+@protocol Epos2VerifyeUpdateDelegate <NSObject>
+@required
+- (void) onUpdateVerify:(int)code;
+@end
 @protocol Epos2MaintenanceCounterDelegate <NSObject>
 @required
 - (void) onGetMaintenanceCounter:(int)code type:(int)type value:(int)value;
@@ -943,7 +982,6 @@ enum Epos2PrinterSettingPrintSpeed : int {
 - (int) stopMonitor;
 - (int) beginTransaction;
 - (int) endTransaction;
-
 - (int) clearCommandBuffer;
 - (int) addTextAlign:(int)align;
 - (int) addLineSpace:(long)linespc;
@@ -975,6 +1013,7 @@ enum Epos2PrinterSettingPrintSpeed : int {
 - (int) forceRecover:(long)timeout;
 - (int) forcePulse:(int)drawer pulseTime:(int)time timeout:(long)timeout;
 - (int) forceReset:(long)timeout;
+//- (int) getCommandBuffer:(NSMutableData *)commandData Flag:(unsigned long)flag;
 @end
 
 @interface Epos2PrinterStatusInfo : NSObject
@@ -1008,6 +1047,8 @@ enum Epos2PrinterSettingPrintSpeed : int {
 - (int) addSound:(int)pattern repeat:(long)repeat cycle:(long)cycle;
 - (int) addFeedPosition:(int)position;
 - (int) addLayout:(int)type width:(long)width height:(long)height marginTop:(long)marginTop marginBottom:(long)marginBottom offsetCut:(long)offsetCut offsetLabel:(long)offsetLabel;
+- (int) addRotateBegin;
+- (int) addRotateEnd;
 - (int) forceStopSound:(long)timeout;
 - (int) forceCommand:(NSData *)data timeout:(long)timeout;
 
@@ -1020,6 +1061,12 @@ enum Epos2PrinterSettingPrintSpeed : int {
 - (void) setConnectionEventDelegate:(id<Epos2ConnectionDelegate>)delegate;
 - (NSString *) getAdmin;
 - (NSString *) getLocation;
+
+- (int) downloadFirmwareList:(NSString *)printerModel delegate:(id<Epos2FirmwareListDownloadDelegate>)delegate;
+- (int) downloadFirmwareList:(NSString *)printerModel option:(NSString *)option delegate:(id<Epos2FirmwareListDownloadDelegate>)delegate;
+- (int) getPrinterFirmwareInfo:(long)timeout delegate:(id<Epos2FirmwareInformationDelegate>)delegate;
+- (int) updateFirmware:(Epos2FirmwareInfo *)targetFirmwareInfo delegate:(id<Epos2FirmwareUpdateDelegate>)delegate;
+- (int) verifyUpdate:(Epos2FirmwareInfo *)targetFirmwareInfo delegate:(id<Epos2VerifyeUpdateDelegate>)delegate;
 
 - (int) getMaintenanceCounter:(long)timeout type:(int)Type delegate:(id<Epos2MaintenanceCounterDelegate>)delegate;
 - (int) resetMaintenanceCounter:(long)timeout type:(int)Type delegate:(id<Epos2MaintenanceCounterDelegate>)delegate;
@@ -1380,6 +1427,29 @@ enum Epos2PrinterSettingPrintSpeed : int {
 - (void) setConnectionEventDelegate:(id<Epos2ConnectionDelegate>)delegate;
 - (NSString *) getAdmin;
 - (NSString *) getLocation;
+@end
+
+@interface Epos2GermanyFiscalElementStatusinfo : NSObject
+@property(readonly, getter=getConnection) int connection;
+@end
+
+@interface Epos2GermanyFiscalElement : NSObject
+- (id) init;
+- (void) dealloc;
+
+- (int) connect:(NSString *) target timeout:(long)timeout;
+- (int) disconnect;
+- (Epos2GermanyFiscalElementStatusinfo *) getStatus;
+- (int) operate:(NSString *)jsonString timeout:(long)timeout;
+- (void) setReceiveEventDelegate:(id<Epos2GermanyFiscalElementReceiveDelegate>)delegate;
+
+- (void) setConnectionEventDelegate:(id<Epos2ConnectionDelegate>)delegate;
+- (NSString *) getAdmin;
+- (NSString *) getLocation;
+@end
+
+@interface Epos2FirmwareInfo : NSObject
+@property(nonatomic, copy, readonly, getter=getVersion) NSString *version;
 @end
 
 @interface Epos2FilterOption : NSObject
